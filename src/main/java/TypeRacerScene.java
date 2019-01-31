@@ -29,8 +29,8 @@ import java.util.concurrent.TimeUnit;
 public class TypeRacerScene {
 
     public static String typeRacerUrl = null;
-    public static String slackToken = "xoxp-9728644887-394815205988-535944014133-a2dcc59004f1b844ee41c40ffa5f32c9";
-    public static String channel = "GFS3NTZUG";
+    public static String slackToken = "enter-slack-token-here";
+    public static String channel = "enter-slack-group-id-here";
 
     public static void beginTypeRacer(Stage primaryStage) throws Exception {
 
