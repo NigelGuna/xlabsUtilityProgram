@@ -1,8 +1,13 @@
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.*;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.*;
 
 import javax.swing.*;
@@ -33,9 +38,9 @@ public class appUI extends Application {
         //CSS CHECKER
         Menu function1 = new Menu("Menu");
         functionBar.getMenus().add(function1);
-        ImageView cssImage = (new ImageView("file:C:\\PROJECTS LOL\\cssScriptInterface\\src\\resources\\css.png"));
-        cssImage.setFitHeight(20);
-        cssImage.setFitWidth(20);
+        ImageView cssImage = (new ImageView("file:C:\\PROJECTS LOL\\cssCheckerApp\\src\\main\\resources\\css.png"));
+        cssImage.setFitHeight(22);
+        cssImage.setFitWidth(22);
         function1.setGraphic(cssImage);
         //MENU FUNCTIONS
         MenuItem function1Item1 = new MenuItem("THE CHECK!");
@@ -51,7 +56,26 @@ public class appUI extends Application {
         CustomMenuItem function1Item2Button = new CustomMenuItem();
         function1Item2Button.setContent(velocityButton);
         function1Item2Button.setOnAction(action ->{
-            System.out.println("Velocityyyyyyyyyyyyyyyyyyyy");
+            if(slider.getValue()==100){
+                pane.setBackground(new Background(new BackgroundFill(Color.rgb(229,22,33), CornerRadii.EMPTY, Insets.EMPTY)));
+                final Stage dialog = new Stage();
+                dialog.initModality(Modality.APPLICATION_MODAL);
+                dialog.initOwner(primaryStage);
+                VBox dialogVbox = new VBox(20);
+                Text vBoxText = new Text("You have achieved MAXIMUM VELOCITY!");
+                dialogVbox.getChildren().add(vBoxText);
+                vBoxText.setTextAlignment(TextAlignment.JUSTIFY);
+                Scene dialogScene = new Scene(dialogVbox, 220, 50);
+                Image fireimage = new Image("file:C:\\PROJECTS LOL\\cssCheckerApp\\src\\main\\resources\\fire.jpg");
+                dialog.getIcons().add(fireimage);
+                dialog.setScene(dialogScene);
+                dialog.show();
+                System.out.println("ohmygod");
+            }
+            if(slider.getValue()< 100){
+                pane.setBackground(new Background(new BackgroundFill(Color.rgb(22,201,229), CornerRadii.EMPTY, Insets.EMPTY)));
+
+            }
         });
         function1.getItems().add(function1Item2Button);
 
