@@ -16,11 +16,11 @@ import java.io.*;
 /**
  * Created by ngunawardena on 1/29/2019.
  */
-public class moonLanderScene{
+public class MoonLanderScene {
 
     public static void beginMoonLander(Stage primaryStage) throws Exception {
         GridPane moonLanderPane = new GridPane();
-        moonLanderPane.add(appUI.functionBar, 0,0, 5,1);
+        moonLanderPane.add(AppUI.functionBar, 0,0, 5,1);
 
 
         WebView moonLanderWebView = new WebView();

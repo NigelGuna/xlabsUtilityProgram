@@ -1,12 +1,6 @@
-import javafx.application.Application;
 import javafx.concurrent.Worker;
-import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.scene.*;
-import javafx.scene.control.*;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.web.WebView;
 import javafx.stage.*;
 
@@ -14,14 +8,7 @@ import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.security.GeneralSecurityException;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by ngunawardena on 1/29/2019.
@@ -63,7 +50,7 @@ public class TypeRacerScene {
 //        }
 
         GridPane typeRacerPane = new GridPane();
-        typeRacerPane.add(appUI.functionBar, 0,0, 5,1);
+        typeRacerPane.add(AppUI.functionBar, 0,0, 5,1);
 
         WebView typeRacerWebView = new WebView();
         typeRacerWebView.getEngine().load("http://play.typeracer.com/");
@@ -72,7 +59,7 @@ public class TypeRacerScene {
             if(typeRacerWebView.getEngine().getLoadWorker().getState()== Worker.State.SUCCEEDED){
                 System.out.println(typeRacerWebView.getEngine().getLoadWorker().getState());
                 System.out.println("Starting thread");
-                keyPressing keyPressing = new keyPressing();
+                KeyPressing keyPressing = new KeyPressing();
                 Thread keyPressThread = new Thread(keyPressing);
                 keyPressThread.start();
             }

@@ -10,10 +10,9 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.*;
 
-import javax.swing.*;
 import java.io.*;
 
-public class appUI extends Application {
+public class AppUI extends Application {
 
     public static MenuBar functionBar = new MenuBar();
     public static GridPane pane = new GridPane();
@@ -61,6 +60,7 @@ public class appUI extends Application {
                 final Stage dialog = new Stage();
                 dialog.initModality(Modality.APPLICATION_MODAL);
                 dialog.initOwner(primaryStage);
+                dialog.setResizable(false);
                 VBox dialogVbox = new VBox(20);
                 Text vBoxText = new Text("You have achieved MAXIMUM VELOCITY!");
                 dialogVbox.getChildren().add(vBoxText);
@@ -83,7 +83,7 @@ public class appUI extends Application {
         MenuItem function1Item3 = new MenuItem("Moon Lander");
         function1Item3.setOnAction(Action ->{
             try {
-                moonLanderScene.beginMoonLander(primaryStage);
+                MoonLanderScene.beginMoonLander(primaryStage);
             }
             catch (Exception e){
                 System.out.println(e);
@@ -102,6 +102,18 @@ public class appUI extends Application {
             }
         });
         function1.getItems().add(function1Item4);
+
+        //AUTHENTICATION FIX
+        MenuItem function1Item5 = new MenuItem("Authentication Fix");
+        function1Item5.setOnAction(Action->{
+            try {
+                AuthenticationFix.beginAuthenticationFix(primaryStage);
+            }
+            catch (Exception e){
+                System.out.println(e);
+            }
+        });
+        function1.getItems().add(function1Item5);
 
         //EXIT BUTTON
         MenuItem function1Exit = new MenuItem("Exit");

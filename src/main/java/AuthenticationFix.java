@@ -8,18 +8,42 @@ import com.wordnik.swagger.models.Operation;
 import com.wordnik.swagger.models.parameters.HeaderParameter;
 import com.wordnik.swagger.models.parameters.Parameter;
 import io.swagger.parser.SwaggerParser;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
+import javafx.concurrent.Worker;
+import javafx.scene.*;
+import javafx.scene.layout.*;
+import javafx.scene.web.WebView;
+import javafx.stage.*;
+
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+import java.security.GeneralSecurityException;
 
 /**
  * Created by dlakshman on 11/19/2018.
  */
-public class authenticationFix {
+public class AuthenticationFix {
+
+    public static void beginAuthenticationFix(Stage primaryStage) throws Exception {
+        GridPane authenticationFixPane = new GridPane();
+        authenticationFixPane.add(AppUI.functionBar, 0,0, 5,1);
+        Scene authenticationFixScene = new Scene(authenticationFixPane, Main.width, Main.height);
+        primaryStage.setTitle("Authentication Fix");
+        primaryStage.setResizable(false);
+        primaryStage.setScene(authenticationFixScene);
+    }
+
+
+
 
     static ObjectMapper jsonMapper = Json.mapper();
     static ObjectMapper yamlMapper = Yaml.mapper();
@@ -109,7 +133,7 @@ public class authenticationFix {
     }
 
     private void addParams(String inputDoc, String fileName){
-        authenticationFix swaggerMain = new authenticationFix();
+        AuthenticationFix swaggerMain = new AuthenticationFix();
 
         JsonNode spec = swaggerMain.readNode(inputDoc);
         Swagger swagger = swaggerMain.readSwagger(spec);
@@ -149,7 +173,7 @@ public class authenticationFix {
     }
 
     private void removeDefault(String inputDoc, String fileName){
-        authenticationFix swaggerMain = new authenticationFix();
+        AuthenticationFix swaggerMain = new AuthenticationFix();
 
         JsonNode spec = swaggerMain.readNode(inputDoc);
         Swagger swagger = swaggerMain.readSwagger(spec);
@@ -221,7 +245,7 @@ public class authenticationFix {
 
 
         File dir = new File("swaggers/");
-        authenticationFix swaggerMain = new authenticationFix();
+        AuthenticationFix swaggerMain = new AuthenticationFix();
 
 
 
@@ -243,6 +267,6 @@ public class authenticationFix {
         System.out.println();
         System.out.println("Action Completed");
 
-    }
+    }    
 
 }

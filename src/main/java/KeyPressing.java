@@ -8,7 +8,7 @@ import com.squareup.okhttp.*;
 /**
  * Created by ngunawardena on 1/30/2019.
  */
-public class keyPressing implements Runnable {
+public class KeyPressing implements Runnable {
     @Override
     public void run() {
         try{
